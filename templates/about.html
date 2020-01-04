@@ -2,10 +2,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<!-- templates/signup.html-->
-{% extends 'base.html' %}
-
-{% block content %}
 
 <!--
 Author: Colorlib
@@ -34,10 +30,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<h1>Your Profile</h1>
 		<div class="main-agileinfo">
 			<div class="agileits-top">
+				<form action="/action_page.php">
+					<input type="file" name="pic" accept="image/*">
+					<input type="submit" placeholder="Upload a photo">
+				  </form>
 				<form action="#" method="post">
 					<input class="text" type="text" name="Username" placeholder="Username" required="">
 					<input class="text" type="text" name="Gender" placeholder="Gender" required="">
-					<input class="text" type="text" name="Looking for" placeholder="Looking for: " required="">
+					<input class="text" type="text" name="Looking for" placeholder="Gender you're looking for: " required="">
                     <input class="text" type="text" name="relationship" placeholder="What kind of relationship are you looking for?" required="">
                     
 					<div class="wthree-text">
@@ -73,5 +73,4 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!-- //main -->
 </body>
 </html>
-{% endblock %}
 {% endblock %}
