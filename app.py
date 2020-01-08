@@ -22,6 +22,10 @@ def signup():
 def login():
   return render_template('login.html', login=login)
 
+@app.route('/profiles')
+def profiles():
+  return render_template('profiles.html', profiles=profiles)
+
 @app.route('/video')
 def video():
   return render_template('video.html', video=video)
