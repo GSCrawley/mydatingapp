@@ -32,15 +32,25 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="agileits-top">
 				<form action="/action_page.php">
 					<input type="file" name="pic" accept="image/*">
-					<input type="submit" placeholder="Upload a photo">
+					<input type="submit" value="Upload Your Photo">
 				  </form>
 				<form action="#" method="post">
 					<input class="text" type="text" name="Username" placeholder="Username" required="">
-					<input class="text" type="text" name="Gender" placeholder="Gender" required="">
-					<input class="text" type="text" name="Looking for" placeholder="Gender you're looking for: " required="">
+					<input class="text" type="text" name="Gender" list="gender" placeholder="Gender" required="">
+						<datalist id="gender">
+						<option value="Male">
+						<option value="Female">
+						<option value="Non-Binary">
+						</datalist>
+					<input class="text" type="text" name="Looking for" list="gender you're seeking" placeholder="Gender you're seeking " required="">
+					<datalist id="gender you're seeking">
+						<option value="Male">
+						<option value="Female">
+						<option value="Gender is a social construct: ">
+						</datalist>
                     <input class="text" type="text" name="relationship" placeholder="What kind of relationship are you looking for?" required="">
                     
-					<div class="wthree-text">
+					<div class="wthree-text" style="padding-top: 1em">
 						<label class="anim">
 							<input type="checkbox" class="checkbox" required="">
 							<span>I Agree To The Terms & Conditions</span>
@@ -49,9 +59,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</div>
 					<input type="submit" value="SIGNUP">
 				</form>
-				<p>Already have an Account? <a href="/login"> Log in Now!</a></p>
 			</div>
 		</div>
+		
 		<!-- copyright -->
 		<div class="colorlibcopy-agile">
 			<p>© 2018 Colorlib Signup Form. All rights reserved | Design by <a href="https://colorlib.com/" target="_blank">Colorlib</a></p>
