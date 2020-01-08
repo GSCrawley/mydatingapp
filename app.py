@@ -22,9 +22,9 @@ def signup():
 def login():
   return render_template('login.html', login=login)
 
-@app.route('/vidchat')
-def vidchat():
-  return render_template('vidchat.html', vidchat=vidchat)
+@app.route('/video')
+def video():
+  return render_template('video.html', video=video)
 
 if __name__ == '__main__':
   app.run(debug=True, host='0.0.0.0', port=os.environ.get('PORT', 5000))
