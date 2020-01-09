@@ -5,7 +5,7 @@ from flask import Flask, render_template, request, redirect, url_for
 host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/mydatingapp')
 client = MongoClient(host=f'{host}?retryWrites=false')
 db = client.get_default_database()
-profiles = db.profiles
+users = db.users
 
 app = Flask(__name__)
 
@@ -19,7 +19,7 @@ def home():
 def about_you():
   return render_template('about_you.html', about_you=about_you)
 
-@app.route('/user_list')
+@app.route('/user_list', methods=['POST'])
 def user_list():
   return render_template('user_list.html', user_list=user_list)
 
@@ -30,6 +30,17 @@ def user_details():
 @app.route('/signup')
 def signup():
   return render_template('signup.html', signup=signup)
+
+@app.route('/signup', methods=['POST'])
+def signup_submit():
+    user = {
+        'name': request.form.get('username'),
+        'email': request.form.get('email'),
+        'password': request.form.get('password')
+    }
+    print(user)
+    user_id = users.insert_one(user).inserted_id
+    return redirect(url_for('about_you'))
 
 @app.route('/login')
 def login():
