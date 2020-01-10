@@ -25,18 +25,18 @@ def user_list():
 def your_profile():
   return render_template('your_profile.html', your_profile=your_profile)
 
-@app.route('/about_you', methods=['POST'])
+@app.route('/about_you', methods=['POST'])        
 def profile_submit():
   profile = {
-        'profile_pic': request.form.get('pic'),
-        'username': request.form.get('username'),
-        'gender': request.form.get('gender'),
+        'profile_pic': request.form.get('about_me/pic'),
+        'username': request.form.get('about_me/username'),
+        'gender': request.form.get('gender'), 
         "gender you're seeking": request.form.get("gender you're seeking"),
         'relationship type': request.form.get('relationship type')
     }
   print(profile)
   profile_id = profile.insert_one(profile).inserted_id
-  return redirect(url_for('profiles_show', playlist_id=playlist_id))
+  return redirect(url_for('profiles_show', profile_id=profile_id))
 
 @app.route('/signup')
 def signup():
