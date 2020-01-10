@@ -17,9 +17,9 @@ def home():
 def about_you():
   return render_template('about_you.html', profile = {}, about_you=about_you)
 
-@app.route('/user_list', methods=['POST'])
+@app.route('/users_index', methods=['POST'])
 def user_list():                                                                                                                                                                                                                                        
-  return render_template('user_list.html', user_list=user_list)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+  return render_template('users_index.html', user_list=user_list)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
 
 @app.route('/your_profile')
 def your_profile():
