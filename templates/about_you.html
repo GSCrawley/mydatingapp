@@ -27,15 +27,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <body>
 	<!-- main -->
 	<div class="main-w3layouts wrapper">
-		<h1>Your Profile</h1>
+		<h1>About You</h1>
 		<div class="main-agileinfo">
 			<div class="agileits-top">
-				<form action="/action_page.php">
+				<form action="/your_profile" method="POST">
 					<input type="file" name="pic" accept="image/*">
 					<input type="submit" value="Upload Your Photo">
 				  </form>
-				<form action="#" method="post">
-					<input class="text" type="text" name="Username" placeholder="Username" required="">
+				<form action="/your_profile" method="post">
+					<input class="text" type="text" name="username" placeholder="Username" required="">
 					<input class="text" type="text" name="Gender" list="gender" placeholder="Gender" required="">
 						<datalist id="gender">
 						<option value="Male">

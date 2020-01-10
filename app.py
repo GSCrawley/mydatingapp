@@ -9,23 +9,34 @@ users = db.users
 
 app = Flask(__name__)
 
-
 @app.route('/')
 def home():
-    "Show Homepage"
-    return render_template('home.html', home=home)
+  return render_template('home.html', home=home)
 
 @app.route('/about_you')
 def about_you():
-  return render_template('about_you.html', about_you=about_you)
+  return render_template('about_you.html', profile = {}, about_you=about_you)
 
 @app.route('/user_list', methods=['POST'])
-def user_list():
-  return render_template('user_list.html', user_list=user_list)
+def user_list():                                                                                                                                                                                                                                        
+  return render_template('user_list.html', user_list=user_list)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
 
-@app.route('/user_details')
-def user_details():
-  return render_template('user_details.html', user_details=user_details)
+@app.route('/your_profile')
+def your_profile():
+  return render_template('your_profile.html', your_profile=your_profile)
+
+@app.route('/about_you', methods=['POST'])
+def profile_submit():
+  profile = {
+        'profile_pic': request.form.get('pic'),
+        'username': request.form.get('username'),
+        'gender': request.form.get('gender'),
+        "gender you're seeking": request.form.get("gender you're seeking"),
+        'relationship type': request.form.get('relationship type')
+    }
+  print(profile)
+  profile_id = profile.insert_one(profile).inserted_id
+  return redirect(url_for('profiles_show', playlist_id=playlist_id))
 
 @app.route('/signup')
 def signup():
