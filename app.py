@@ -13,31 +13,6 @@ app = Flask(__name__)
 def home():
   return render_template('home.html', home=home)
 
-@app.route('/about_you')
-def about_you():
-  return render_template('about_you.html', profile = {}, about_you=about_you)
-
-@app.route('/users_index', methods=['POST'])
-def user_list():                                                                                                                                                                                                                                        
-  return render_template('users_index.html', user_list=user_list)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
-
-@app.route('/your_profile')
-def your_profile():
-  return render_template('your_profile.html', your_profile=your_profile)
-
-@app.route('/about_you', methods=['POST'])        
-def profile_submit():
-  profile = {
-        'profile_pic': request.form.get('about_me/pic'),
-        'username': request.form.get('about_me/username'),
-        'gender': request.form.get('gender'), 
-        "gender you're seeking": request.form.get("gender you're seeking"),
-        'relationship type': request.form.get('relationship type')
-    }
-  print(profile)
-  profile_id = profile.insert_one(profile).inserted_id
-  return redirect(url_for('profiles_show', profile_id=profile_id))
-
 @app.route('/signup')
 def signup():
   return render_template('signup.html', signup=signup)
@@ -51,15 +26,45 @@ def signup_submit():
     }
     print(user)
     user_id = users.insert_one(user).inserted_id
-    return redirect(url_for('about_you'))
+    return redirect(url_for('user_info'))
 
 @app.route('/login')
 def login():
   return render_template('login.html', login=login)
+@app.route('/user_info')
+def user_info():
+  return render_template('user_info.html', user = {}, user_info=user_info)
 
-@app.route('/profiles')
-def profiles():
-  return render_template('profiles.html', profiles=profiles)
+@app.route('/users_index', methods=['POST'])
+def user_list():                                                                                                                                                                                                                                        
+  return render_template('users_index.html', user_list=user_list)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+
+@app.route('/your_profile')
+def your_profile():
+  return render_template('your_profile.html', your_profile=your_profile)
+
+@app.route('/user_info', methods=['POST'])        
+def user_submit():
+  user = {
+        # 'user_pic': request.form.get('user_info/pic'),
+        'username': request.form.get('user_info/username'),
+        'gender': request.form.get('user_info/gender'), 
+        "gender you're seeking": request.form.get("user_info/gender you're seeking"),
+        'relationship type': request.form.get('user_info/relationship type')
+    }
+  print(user)
+  user_id = user.insert_one(user).inserted_id
+  return redirect(url_for('user_show', user_id=user_id))
+
+@app.route('/users/<user_id>')
+def users_show(user_id):
+    """Show a single user."""
+    user = users.find_one({'_id': ObjectId(user_id)})
+    return render_template('user_show.html', user=user)
+
+@app.route('/users')
+def users():
+  return render_template('users.html', users=users)
 
 @app.route('/video')
 def video():

@@ -1,4 +1,4 @@
-<!-- templates/about_you.html -->
+<!-- templates/user_info.html -->
 {% extends 'base.html' %}
 
 {% block content %}
@@ -30,11 +30,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<h1>About You</h1>
 		<div class="main-agileinfo">
 			<div class="agileits-top">
-				<form action="/your_profile" method="POST">
+				<!-- <form action="/user_info" method="POST">
 					<input type="file" name="pic" accept="image/*">
 					<input type="submit" value="Upload Your Photo">
-				  </form>
-				<form action="/your_profile" method="post">
+				  </form> -->
+				<form action="/user_info" method="post">
 					<input class="text" type="text" name="username" placeholder="Username" required="">
 					<input class="text" type="text" name="Gender" list="gender" placeholder="Gender" required="">
 						<datalist id="gender">
