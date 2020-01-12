@@ -1,16 +1,22 @@
 <!-- templates/users_index.html -->
+
 {% extends 'base.html' %}
 
 {% block content %}
+
 <h1>User Profiles</h1>
 
 <div class='row'>
-    {% for user in users %}
-        <div class='col-md-3'>
-            <h2><a href='/users/{{ user._id }}'>{{ user.username }}</a><
+
+{% for profile in profiles %}
+       
+<div class='col-md-3'>
+            <h2><a href='/users/{{ user._id }}'>{{ user.username }}</a>
             {{ user.gender }}</h2>
         </div>
-    {% endfor %}
+
+{% endfor %}
+
 </div>
 
 {% endblock %}
