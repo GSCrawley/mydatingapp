@@ -37,10 +37,13 @@ def signup():
 #     user_id = users.insert_one(user).inserted_id
 #     return redirect(url_for('/user_info_form'))
 
-@app.route('/users/new')
+@app.route('/users/new', methods=['GET', 'POST'])
 def users_new():
     """Create a new User Profile"""
-    return render_template('users_new.html', user={}, title='New User Profile') 
+    if request.method == 'POST':
+        return redirect(url_for('users_new.html', user_id=user_id))
+    if request.method == 'GET':
+        return render_template('users_new.html') 
 
 @app.route('/users', methods=['POST'])        
 def user_submit():
