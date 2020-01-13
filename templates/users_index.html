@@ -8,11 +8,11 @@
 
 <div class='row'>
 
-{% for profile in profiles %}
+{% for user in users %}
        
 <div class='col-md-3'>
-            <h2><a href='/users/{{ user._id }}'>{{ user.username }}</a>
-            {{ user.gender }}</h2>
+            <h2><a href='/users/{{ user._id }}'>{{ user.'username' }}</a>
+            {{ user.'gender' }}</h2>
         </div>
 
 {% endfor %}

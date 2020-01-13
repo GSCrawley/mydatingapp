@@ -9,29 +9,25 @@ users = db.users
 
 app = Flask(__name__)
 
-@app.route('/home')
+@app.route('/')
 def home():
     return render_template('home.html', home=home)
 
-@app.route('/')
+@app.route('/index')
 def users_index():
     """Show all users."""
     return render_template('users_index.html', users=users)                                                                                                                                                                                                                                                                                                                                                                                                                                                            
 
-# @app.route('/login')
-# def login():
-#     return render_template('login.html', login=login)
+@app.route('/login')
+def login():
+    return render_template('login.html', login=login)
 
-# @app.route('/login/user_submit')
-#     def user_login()
-
-
-# @app.route('/signup')
-# def signup():
-#     return render_template('signup.html', signup=signup)
+@app.route('/signup')
+def signup():
+    return render_template('signup.html', signup=signup)
  
 # @app.route('/signup', methods=['POST'])
-# def signup_submit():
+# def signup():
 #     user = {
 #         'name': request.form.get('username'),
 #         'email': request.form.get('email'),
@@ -39,7 +35,7 @@ def users_index():
 #     }
 #     print(user)
 #     user_id = users.insert_one(user).inserted_id
-#     return redirect(url_for('user_info'))
+#     return redirect(url_for('/user_info_form'))
 
 @app.route('/users/new')
 def users_new():
@@ -68,23 +64,21 @@ def users_show(user_id):
     user = users.find_one({'_id': ObjectId(user_id)})
     return render_template('users_show.html', user=user)
 
-@app.route('users/<user_id>/edit')
+@app.route('/users/<user_id>/edit')
 def users_edit(user_id):
     """Show the edit form for a User Profile"""
     user = users.find_one({'_id': ObjectId(user_id)})
 
-@app.route('users/<user_id>', methods=['POST'])
+@app.route('/users/<user_id>', methods=['POST'])
 def users_update(users_id):
     """Submit an edited User Profile"""
     updated_profile = {
-        'username': request.form.get('name'),
-        'relationship': request.form.get('relationship type')
-        'gender':
-        'gender_preference':
-        
-
+        'username ': request.form.get('name'),
+        'relationship ': request.form.get('relationship type'),
+        # 'gender ': request.form.get('gender'),
+        'gender_preference ': request.form.get('gender-preference'),
     }
-    return render_template('users.html', users=users)
+    return render_template('/users.html', users=users)
 
 @app.route('/video')
 def video():
