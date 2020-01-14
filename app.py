@@ -40,26 +40,40 @@ def signup():
 def users_new():
     """Create a new User Profile"""
     if request.method == 'POST':
-        return redirect(url_for('user_submit'))
+        user = {
+            'user_pic': request.form.get('user_info/pic'),
+            'username': request.form.get('username'),
+            'gender': request.form.get('gender'), 
+            "gender you're seeking": request.form.get("gender you're seeking"),
+            'relationship type': request.form.get('relationship type'),
+            'bio': request.form.get('bio')
+    
+        }
+        print(user)
+        user_id = users.insert_one(user).inserted_id
+        return redirect(url_for('users_show', user_id=user_id))
+        # return redirect(url_for('user_submit'))
     if request.method == 'GET':
         return render_template('users_new.html') 
 
 @app.route('/users', methods=['POST'])        
 def user_submit():
     """Submit a New User Profile"""
-    user = {
-        'user_pic': request.form.get('user_info/pic'),
-        'username': request.form.get('username'),
-        'gender': request.form.get('gender'), 
-        "gender you're seeking": request.form.get("gender you're seeking"),
-        'relationship type': request.form.get('relationship type'),
-        'bio': request.form.get('bio')
+"""
+    if request.method == 'POST':
+        user = {
+            'user_pic': request.form.get('user_info/pic'),
+            'username': request.form.get('username'),
+            'gender': request.form.get('gender'), 
+            "gender you're seeking": request.form.get("gender you're seeking"),
+            'relationship type': request.form.get('relationship type'),
+            'bio': request.form.get('bio')
     
-    }
-    print(user)
-    user_id = users.insert_one(user).inserted_id
-    return redirect(url_for('users_show'), user_id=user_id)
-    
+        }
+        print(user)
+        user_id = users.insert_one(user).inserted_id
+        return redirect(url_for('users_show', user_id=user_id))
+"""    
 @app.route('/users/<user_id>')
 def users_show(user_id):
     """Show a single user."""
