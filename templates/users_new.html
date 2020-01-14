@@ -3,8 +3,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class='row'>
-    <div class='col-sm-6 col-sm-offset-3'>
+<link rel = "stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/pulse/bootstrap.min.css">
+<link href="../static/css/signup_style.css" rel="stylesheet" type="text/css" media="all" />
+
+<div class='container'>
+    <!-- <div class='col-sm-6 col-sm-offset-3'> -->
         <form method='POST' action='/users/new'>
             {% include 'partials/user_info_form.html' %}
             <!-- BUTTON -->
