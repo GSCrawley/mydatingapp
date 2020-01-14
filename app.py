@@ -52,14 +52,14 @@ def users_new():
         print(user)
         user_id = users.insert_one(user).inserted_id
         return redirect(url_for('users_show', user_id=user_id))
-        # return redirect(url_for('user_submit'))
+        
     if request.method == 'GET':
         return render_template('users_new.html') 
 
 @app.route('/users', methods=['POST'])        
 def user_submit():
     """Submit a New User Profile"""
-"""
+
     if request.method == 'POST':
         user = {
             'user_pic': request.form.get('user_info/pic'),
@@ -73,7 +73,7 @@ def user_submit():
         print(user)
         user_id = users.insert_one(user).inserted_id
         return redirect(url_for('users_show', user_id=user_id))
-"""    
+    
 @app.route('/users/<user_id>')
 def users_show(user_id):
     """Show a single user."""
