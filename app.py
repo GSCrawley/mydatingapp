@@ -2,9 +2,9 @@ import os
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 from flask import Flask, render_template, request, redirect, url_for
-host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/mydatingapp')
+host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/winterintensivedatingapp')
 client = MongoClient(host='f{host}?retryWrites=false')
-db = client['mydatingapp']
+db = client['winterintensivedatingapp']
 users = db.users
 
 app = Flask(__name__)

@@ -13,8 +13,8 @@
 
         <h2>{{ user.description }}</h2>
      
-        <p><a href='/users/{{ user._id }}/edit'>Edit</a></p>
-        <p><form method='POST' action='/users/{{ user._id }}/delete'>
+        <p><a href='/users/{{ user._id }}'>Edit</a></p>
+        <p><form method='GET' action='/users/{{ user._id }}/delete'>
             <input type='hidden' name='_method' value='DELETE'>
             <button class='btn btn-primary' type='submit'>Delete</button>
         </form></p>
