@@ -72,7 +72,7 @@ def user_submit():
         }
         print(user)
         user_id = users.insert_one(user).inserted_id
-        return redirect(url_for('users_show', user_id=user_id))
+        return redirect(url_for('users_show(user_id)', user_id=user_id))
     
 @app.route('/users/<user_id>')
 def users_show(user_id):
