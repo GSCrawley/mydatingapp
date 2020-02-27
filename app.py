@@ -2,9 +2,9 @@ import os
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 from flask import Flask, render_template, request, redirect, url_for
-host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/winterintensivedatingapp')
+host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/mydatingapp')
 client = MongoClient(host='f{host}?retryWrites=false')
-db = client["winterintensivedatingapp"]
+db = client["mydatingapp"]
 users = db.users
 
 app = Flask(__name__)
@@ -77,8 +77,12 @@ def user_submit():
         }
         print(user)
         user_id = users.insert_one(user).inserted_id
+<<<<<<< HEAD
         print('users_show'+str(user_id))
         return redirect('users_show'+str(user_id), user_id=user_id)
+=======
+        return redirect(url_for('users_show(user_id)', user_id=user_id))
+>>>>>>> f3aef375950b7b603e815d5cadcae61e86637970
     
 @app.route('/users/<user_id>')
 def users_show(user_id):
