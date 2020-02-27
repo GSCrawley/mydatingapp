@@ -4,7 +4,7 @@
 {% block content %}
 <div class='row'>
     <div class='col-sm-6 col-sm-offset-3'>
-        <form method='POST' action='/users/{{user._id}}'>
+        <form method='GET' action='/users/{{user._id}}/edit'>
             <input type='hidden' name='_method' value='PUT'/>
             {% include 'partials/user_info_form.html' %}
             BUTTON

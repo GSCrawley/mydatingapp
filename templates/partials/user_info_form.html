@@ -28,6 +28,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="main-agileinfo">
 			<div class="agileits-top">
 				<form action="/users" method="POST">
+					<!-- Form in 
+						user_info_form.html
+					-->
 					<input type="file" name="jpg" accept="image/*">
 					<input class="text" type="text" name="username" placeholder="Username" required="">
 					<input class="text" type="text" name="gender" list="gender" placeholder="Gender" required="">
@@ -36,14 +39,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<option value="Female">
 						<option value="Non-Binary">
 						</datalist>
-					<input class="text" type="text" name="gender you're seeking" list="gender you're seeking" placeholder="Gender you're seeking " required="">
-					<datalist id="gender you're seeking">
+					<input class="text" type="text" name="gender_seeking" list="gender_seeking" placeholder="Gender you're seeking " required="">
+					<datalist id="gender_seeking">
 						<option value="Male">
 						<option value="Female">
 						<option value="Gender is a social construct.">
 						</datalist>
-                    <input class="text" type="text" name="relationship" list="relationship type" placeholder="What kind of relationship are you looking for?" required="">
-                    <datalist id="relationship type">
+                    <input class="text" type="text" name="relationship_type" list="relationship_type" placeholder="What kind of relationship are you looking for?" required="">
+                    <datalist id="relationship_type">
 						<option value="Marriage">
 						<option value="Long-Term Relationship">
 						<option value="Friends w/Benefits">
@@ -53,7 +56,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<div class="wthree-text" style="padding-top: 1em">
 						<div class="clear"> </div>
 					</div>
-					<input type="submit" value="SAVE PROFILE" href='/users'>
+					<input type="submit" value="SAVE PROFILE">
 				</form>
 			</div>
 		</div>
