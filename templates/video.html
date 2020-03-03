@@ -4,9 +4,9 @@
 {% block content %}
 
 
-<img src= '../static/vidchat.jpg' height=auto width=65%>
+<img src= '../static/vidchat.jpg' height=auto width=80%>
 <!-- <img src= '../static/chatbox.jpg' height=auto width=50%> -->
-<h1> You are chatting with: Marie-Anne </h1>
+<h1> Marie-Anne wants to chat!</h1>
 
 <style>
     
@@ -19,14 +19,13 @@
 
     body {
         background-color: #76B852;
-        /* background-image: url(static/vidchat.jpg); */
-        /* background-size: 50%; */
         background-position: left; 
         background-repeat: no-repeat;
     }
 
     h1 {
-        padding: 1em;
+        /* margin-left: -20px; */
+        padding-top: 1em;
         text-align: left;
         color: black;
         font-size: 20px;
@@ -43,6 +42,9 @@
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box;}
 
+h2, p {
+  color: black;
+}
 /* Button used to open the chat form - fixed at the bottom of the page */
 .open-button {
   background-color: #555;
@@ -116,17 +118,15 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </head>
 <body>
 
-<h2>Popup Chat Window</h2>
 <p>Click on the button at the bottom of this page to open the chat form.</p>
-<p>Note that the button and the form is fixed - they will always be positioned to the bottom of the browser window.</p>
 
 <button class="open-button" onclick="openForm()">Chat</button>
 
 <div class="chat-popup" id="myForm">
   <form action="/action_page.php" class="form-container">
-    <h1>Chat</h1>
+    <h1>Marie-Anne</h1>
 
-    <label for="msg"><b>Message</b></label>
+    <label for="msg"><b>Hi there, you're cute!</b></label>
     <textarea placeholder="Type message.." name="msg" required></textarea>
 
     <button type="submit" class="btn">Send</button>
