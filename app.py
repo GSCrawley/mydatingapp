@@ -54,7 +54,7 @@ def users_new():
         }
         print(user)
         user_id = users.insert_one(user).inserted_id
-        return redirect('users_show', user_id=user_id)
+        return redirect('/users/'+user_id, user_id=user_id)
         
 
     if request.method == 'GET':

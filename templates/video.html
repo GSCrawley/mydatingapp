@@ -114,6 +114,11 @@ h2, p {
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 }
+
+#chat-messages {
+  display: flex;
+  flex-direction: column;
+}
 </style>
 </head>
 <body>
@@ -125,16 +130,30 @@ h2, p {
 <div class="chat-popup" id="myForm">
   <form action="/action_page.php" class="form-container">
     <h1>Marie-Anne</h1>
+    <div id="chat-messages">
+      <label for="msg"><b>Hi there, you're cute!</b></label>
+    </div>
+    <textarea id="chat-box" placeholder="Type message.." name="msg" required></textarea>
 
-    <label for="msg"><b>Hi there, you're cute!</b></label>
-    <textarea placeholder="Type message.." name="msg" required></textarea>
-
-    <button type="submit" class="btn">Send</button>
+    <button id="send-button" type="submit" class="btn">Send</button>
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
   </form>
 </div>
 
 <script>
+
+const sendButton = document.getElementById("send-button")
+const chatDiv = document.getElementById("chat-messages")
+const chatBox = document.getElementById("chat-box")
+
+sendButton.addEventListener("click", (e) => {
+  e.preventDefault()
+
+  chatDiv.innerHTML += `<label for="msg"><b>${chatBox.value}</b></label>`
+
+
+})
+
 function openForm() {
   document.getElementById("myForm").style.display = "block";
 }
