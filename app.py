@@ -3,7 +3,7 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 from flask import Flask, render_template, request, redirect, url_for
 host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/mydatingapp')
-client = MongoClient(host='f{host}?retryWrites=false')
+client = MongoClient(host=f'{host}?retryWrites=false')
 db = client["mydatingapp"]
 users = db.users
 
@@ -25,13 +25,13 @@ def login():
 @app.route('/signup', methods=['GET','POST'])
 def signup():
     if request.method == 'POST':
-        user = {
+        user_profile = {
         'name': request.form.get('username'),
         'email': request.form.get('email'),
         'password': request.form.get('password')
         }
-        print(user)
-        user_id = users.insert_one(user).inserted_id
+        print(user_profile)
+        user_id = users.insert_one(user_profile).inserted_id
         return redirect(url_for('users_new'))
     if request.method == 'GET':
         return render_template('signup.html', signup=signup)
@@ -54,7 +54,7 @@ def users_new():
         }
         print(user)
         user_id = users.insert_one(user).inserted_id
-        return redirect('/users/'+user_id, user_id=user_id)
+        return redirect(url_for('users_show'), user_id=user_id)
         
 
     if request.method == 'GET':
@@ -77,20 +77,25 @@ def user_submit():
         }
         print(user)
         user_id = users.insert_one(user).inserted_id
+        print(user_id)
         print('users_show'+str(user_id))
-        return redirect('users_show'+str(user_id), user_id=user_id)
+        return redirect('users/'+str(user_id))  #might need to use later , user_id=user_id)
     
-@app.route('/users/<user_id>')
+@app.route('/users/<user_id>', methods=['GET'])
 def users_show(user_id):
     """Show a single user."""
-    user = users.find_one({'_id': ObjectId(user_id)})
-    return render_template('users_show.html', user=user)
+    if request.method == 'GET':
+
+        user = users.find_one({'_id': ObjectId(user_id)})
+        return render_template('users_show.html', user=user)
 
 @app.route('/users/<user_id>/edit')
 def users_edit():
     """Show the edit form for a User Profile"""
     user = users.find_one({'_id': ObjectId(user_id)})
     return render_template('users_edit.html')
+
+#build delete route
 
 @app.route('/users/<user_id>', methods=['POST'])
 def users_update(users_id):
