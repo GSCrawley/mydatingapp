@@ -1,4 +1,4 @@
-
+note to Braus- because of time constrainst I'm submitting my project as-is. It's a mock-dating app with mock video chat capability. The log in page and signup page are just for show, they don't actually create a new user in the database. I'm almost finished nadding the capability of creating your own profile and seeing it displayed in a form via 'users_show' upon clicking 'save'. it should work by Monday morning
 
 
 
