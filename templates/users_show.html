@@ -5,12 +5,12 @@
 <a href='/users_new' method='POST'></a>
 <div class='row'>
     <div class='col-sm-6 col-sm-offset-3'>
-        <p>{{user.jpg}}
-            {{user.username}}
-            {{user.gender}}
-            {{user.gender_seeking}}
-            {{user.relationship_type}}
-            {{user.bio}}
+        <p>{{ user.user_pic }}
+            {{ user.username }}
+            {{ user.gender }}
+            {{ user.gender_seeking }}
+            {{ user.relationship_type }}
+            {{ user.bio }}
             
         <p><a href='/users/{{ user._id }}'>Edit</a></p>
         <p>
