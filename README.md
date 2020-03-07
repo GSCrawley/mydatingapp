@@ -25,13 +25,3 @@ When it comes down to it, it's still a blind date no matter how long you've been
 **ViDate** cirumvents that uncomfortable first-date that feels like a job interview, by integrating a *Video Chat* feature, allowing people to actually get to know each other a little with a face-to-face conversation before deciding to actually meet in person.
 
 
-
-----------
-
-GET Rquest with name = joe
-
-http://mydomsain.com/route?name=joe&id=9999&date=now&emsil=Hi mom how are you I'm doing fine ...
-
-POST
-
-http://mydomsain.com/route  (HTTP Header name=joe) 
