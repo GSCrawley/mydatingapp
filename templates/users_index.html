@@ -11,9 +11,9 @@
 {% for user in users %}
         
 <div class='col-md-3'>
-            <h2><a href='/users/{{ user._id }}'>{{ user.' user_pic ' }} {{ user.' username ' }}
-            {{ user.' gender ' }} {{ user.' gender_seeking ' }} {{ user.' relationship_type ' }} {{ user.' bio ' }}
-            {{user.bio}} <a/></h2>
+            <h2><a href='/users/{{ user._id }}'>{{ user.jpg }} {{ user.username }}
+            {{ user.gender }} {{ user.gender_seeking }} {{ user.relationship_type }} {{ user.bio }}
+             <a/></h2>
         </div>
 
 {% endfor %}

@@ -2,10 +2,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<a href='/users_new' method='POST'></a>
+<a href='/users_new' method='GET'></a>
 <div class='row'>
     <div class='col-sm-6 col-sm-offset-3'>
-        <p>{{ user.user_pic }}
+        <p> {{ user.jpg }}
             {{ user.username }}
             {{ user.gender }}
             {{ user.gender_seeking }}
