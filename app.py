@@ -45,7 +45,7 @@ def users_new():
 
     if request.method == 'POST':
         user = {
-            'user_pic': request.form.get('jpg'),
+            'jpg': request.form.get('jpg'),
             'username': request.form.get('username'),
             'gender': request.form.get('gender'), 
             "gender you're seeking": request.form.get('gender_seeking'),
@@ -67,13 +67,12 @@ def user_submit():
 
     if request.method == 'POST':
         user = {
-            'user_pic': request.form.get('user_info/pic'),
+            'jpg': request.form.get('jpg'),
             'username': request.form.get('username'),
             'gender': request.form.get('gender'), 
-            "gender you're seeking": request.form.get("gender you're seeking"),
-            'relationship type': request.form.get('relationship type'),
+            "gender_seeking": request.form.get("gender_seeking"),
+            'relationship_type': request.form.get('relationship_type'),
             'bio': request.form.get('bio')
-    
         }
         print(user)
         user_id = users.insert_one(user).inserted_id
