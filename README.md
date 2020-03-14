@@ -1,10 +1,11 @@
 
-# to run project:  'export FLASK_ENV=development' 
-# then: `flask run --host 0.0.0.0 --port 5001`
 
+## gids_spring_intensive
+## Juniors Spring Intensive Deliverable Proposal
 
- ## Spring Intensive Project ##
+### Dates 3/16-3/25
 
+### My Name: Gideon Crawley
 
  
 
@@ -59,7 +60,8 @@ Start coding and finish “Skateboard” feature before beginning “Bike”.
 
 ## Teammate 1 Goal 1 - Finish profile page and make it look good ## Goal 2 - build functional video chat Goal 3 - learn how to use APIs
 
-Wireframes Insert wireframe pictures here
+### Wireframes 
+Insert wireframe pictures here
 
 Evaluation You must meet the following criteria in order to pass the intensive:
 
@@ -68,5 +70,22 @@ Students must get proposal approved before starting the project to pass SOLO mus
 ## Pitch your product Approval Checklist If I have a team project, I wrote this proposal to represent my work and only my work I have completed all the necessary parts of this proposal I linked my proposal in the Spring Intensive Tracker 
 
 ## Sign off Student Name: Gideon Crawley Advisor name -Adam Braus
+
+------------------------------------------------------------------
+
+### to run project:  'export FLASK_ENV=development' 
+### then: `flask run --host 0.0.0.0 --port 5001`
+ 
+## ***ViDate*** #
+### *A dating app with integrated video chat* ###
+
+### If you've ever used a dating app to meet people, you know it can be an awkward, at times frustrating experience. ###
+
+For starters it's a forced, unnatural situation that both parties enter into with (usually unrealistic) set expectations. Couple that with the fact that people often misrepresent themselves, intentionally or not (sure, that's a great shot of you from 6 years ago, but do you really still look like that?) and you've got a surefire recipe for a disappointing, potentially humiliating first date situation.
+
+When it comes down to it, it's still a blind date no matter how long you've been text chatting for. Sure, you can chat via text but how accurate a picture of someone can you really get that way? In a face-to-face conversation you get the benefit of body language, facial expressions, chemistry, etc.. 
+
+**ViDate** cirumvents that uncomfortable first-date that feels like a job interview, by integrating a *Video Chat* feature, allowing people to actually get to know each other a little with a face-to-face conversation before deciding to actually meet in person.
+
 
 
